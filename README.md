@@ -4,7 +4,7 @@ You will need to do a bit of preparation for this week's homework.
 2. You will need to create your own copy in your own IDE.
 3. You will need to make pushes to your own git repo after completing each task. 
 4. Use this test site for scraping: `https://www.scrapethissite.com/pages/simple/`. I would advise making this a constant in your code.
-5. You will need to install bs4. you can install from your terminal or you can use `import bs4` and click on the red warning to force the install. 
+5. You will need to install bs4. You can install from your terminal or you can use `import bs4` and click on the red warning to force the install. 
 6. Ok you should be ready to roll. 
 
 
@@ -15,7 +15,7 @@ You will need to do a bit of preparation for this week's homework.
 4. How may br tags are on the site?
 5. Scrape and print the capital of all countries that start with the letter 'j'
 6. Scrape and print data for Qatar only.
-7. Print the name of contries with a population of at least 200,000,000. 
+7. Print the name of countries with a population of at least 200,000,000. 
 
 ## Prince Daniel's Tasks:
 1. Scrape the capital of each county into a list
@@ -24,7 +24,7 @@ You will need to do a bit of preparation for this week's homework.
 4. How many sup tags are on the page
 5. Scrape and print the population of all countries that start with the letter 'd'
 6. Scrape and print data for South Africa only.
-7. Print the name of contries with a population of at most 200,000,000. 
+7. Print the name of countries with a population of at most 200,000,000. 
 
 ## Sarah's Tasks:
 1. Scrape the population of each country into a list
