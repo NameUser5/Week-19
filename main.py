@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 
-page = requests.get("https://www.scrapethissite.com/pages/simple/")
+url = "https://www.scrapethissite.com/pages/simple/"
+page = requests.get(url)
 soup = BeautifulSoup(page.content, 'html.parser')
 
 # Scrape the population of each country into a list
@@ -16,13 +17,16 @@ soup = BeautifulSoup(page.content, 'html.parser')
 title = soup.title.text
 print(title)
 
-# Scrape the population of each country into a list
-populations = []
+# Note: this prints the entire span, including the tags
+pop = soup.select(".country-population")
+print(pop)
 
-# for _ in range(251):
-#     country_pop = soup.select(".country-population")
-#     populations += country_pop
-#     print(populations)
+# Scrape the population of each country into a list -- DONE
 
-# country_pop = soup.select("country-population")
-# print(country_pop)
+population_list = []
+population = soup.find_all('span',{'class':'country-population'})
+for _ in population:
+    population_list.append(_.text)
+
+for _ in population_list:
+    print(_)
