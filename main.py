@@ -12,7 +12,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 # Scrape and print data for Panama only.
 # Scrape and print the capitals that start with the letter 'd'
 
-# Scrape and print the title of the page.
+# Scrape and print the title of the page -- DONE
 title = soup.title.text
 print(title)
 
