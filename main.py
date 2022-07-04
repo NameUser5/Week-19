@@ -33,24 +33,29 @@ soup = BeautifulSoup(page.content, 'html.parser')
 # print(pop)
 
 
-# Scrape and print the second hyperlink on the site. -- DONE (?)
+# # Scrape and print the second hyperlink on the site. -- DONE (?)
+#
+# hyperlink_list = []
+# hyperlinks = soup.find_all('a')
+# for _ in hyperlinks:
+#     hyperlink_list.append(_)
+#
+# # Taking the entire tag instead of just the text , so I can see what is being linked.
+# print(hyperlink_list[1])
 
-hyperlink_list = []
-hyperlinks = soup.find_all('a')
-for _ in hyperlinks:
-    hyperlink_list.append(_)
 
-# Taking the entire tag instead of just the text , so I can see what is being linked.S
-print(hyperlink_list[1])
+# # How many h3 tags are on the site -- DONE
+#
+# heading_three_list = []
+# headings = soup.find_all('h3')
+# count = 0
+# for _ in headings:
+#     heading_three_list.append(_)
+#     count += 1
+#
+# print(f"There are {count} h3 headings on this page.")
 
 
-# How many h3 tags are on the site -- DONE
+# Scrape and print the area of all countries that start with the letter 's'
 
-heading_three_list = []
-headings = soup.find_all('h3')
-count = 0
-for _ in headings:
-    heading_three_list.append(_)
-    count += 1
-
-print(f"There are {count} h3 headings on this page.")
+area_list = soup.find_all('span',{'class':'country-area'})
