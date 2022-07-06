@@ -21,8 +21,8 @@ soup = BeautifulSoup(page.content, 'html.parser')
 # # Scrape the population of each country into a list -- DONE
 #
 # population_list = []
-# population = soup.find_all('span',{'class':'country-population'})
-# for _ in population:
+# populations = soup.find_all('span',{'class':'country-population'})
+# for _ in populations:
 #     population_list.append(_.text)
 #
 # for _ in population_list:
@@ -56,6 +56,45 @@ soup = BeautifulSoup(page.content, 'html.parser')
 # print(f"There are {count} h3 headings on this page.")
 
 
-# Scrape and print the area of all countries that start with the letter 's'
+# Scrape and print the area of all countries that start with the letter 's' -- IN PROGRESS
 
-area_list = soup.find_all('span',{'class':'country-area'})
+letter = 'S'
+
+h_tags = soup.find_all('h3',{'class':'country-name'})
+capitals = soup.find_all('span',{'class':'country-capital'})
+populations = soup.find_all('span',{'class':'country-population'})
+areas = soup.find_all('span',{'class':'country-capital'})
+
+country_names = []
+
+for _ in h_tags:
+    country_names.append(_.text)
+
+class Country_info():
+    def __init__(self,country_names):
+
+        for _ in country_names:
+            idx = country_names.index(_)
+
+        self.country_capital = capitals.index(idx)
+        self.country_population = populations.index(idx)
+        self.country_area = areas.index(idx)
+
+for _ in country_names:
+    if _[0] == 'S':
+    idx = country_names.index(_)
+
+# for _ in country_names:
+#     if _[0].upper() == letter:
+#         print(_)
+#
+#
+# area_list = soup.find_all('span',{'class':'country-area'})
+
+
+
+# Scrape and print data for Panama only.
+
+for _ in country_h_tags:
+    if _.text == 'Panama':
+        data = soup.select("country-capital")
