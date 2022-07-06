@@ -108,9 +108,8 @@ count = 0
 for _ in h_tags:
     country_names.append(_)
     count += 1
-    print(h_tags[count])
-#     if _.text == 'Panama':
+    if _.text == 'Panama':
 #         idx = h_tags.index(_)
-#         print(_.text,capitals.index(idx),populations.index(idx),areas.index(idx))
+        print(capitals.index(count).text,populations.index(count),areas.index(count))
 #
 # print(capitals.index(1))
