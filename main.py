@@ -67,23 +67,33 @@ areas = soup.find_all('span',{'class':'country-capital'})
 
 country_names = []
 
-for _ in h_tags:
-    country_names.append(_.text)
+# for _ in h_tags:
+#     country_names.append(_.text)
+#
+# class Country_info():
+#     def __init__(self,country_names):
+#
+#         for _ in country_names:
+#             idx = country_names.index(_)
+#
+#         self.country_capital = capitals.index(idx)
+#         self.country_population = populations.index(idx)
+#         self.country_area = areas.index(idx)
+#
+# for _ in h_tags:
+#     if _.text[0] == 'S':
+#         idx = h_tags.index(_)
+#         print(_.text,capitals.index(idx),populations.index(idx),areas.index(idx))
 
-class Country_info():
-    def __init__(self,country_names):
+# for _ in h_tags:
+#     country_names.append(_.text)
+#
+# for _ in country_names:
+#     if _[0] == 'S' or 's':
+#         idx = country_names.index(_)
+#         print(_,capitals.index(idx),populations.index(idx),areas.index(idx))
 
-        for _ in country_names:
-            idx = country_names.index(_)
 
-        self.country_capital = capitals.index(idx)
-        self.country_population = populations.index(idx)
-        self.country_area = areas.index(idx)
-
-for _ in country_names:
-    if _[0] == 'S':
-        idx = country_names.index(_)
-        print(_.text,capitals.index(idx),populations.index(idx),areas.index(idx))
 # for _ in country_names:
 #     if _[0].upper() == letter:
 #         print(_)
@@ -94,7 +104,13 @@ for _ in country_names:
 
 
 # Scrape and print data for Panama only.
-
-# for _ in country_h_tags:
+count = 0
+for _ in h_tags:
+    country_names.append(_)
+    count += 1
+    print(h_tags[count])
 #     if _.text == 'Panama':
-#         data = soup.select("country-capital")
+#         idx = h_tags.index(_)
+#         print(_.text,capitals.index(idx),populations.index(idx),areas.index(idx))
+#
+# print(capitals.index(1))
