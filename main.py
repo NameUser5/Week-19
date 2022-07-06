@@ -82,8 +82,8 @@ class Country_info():
 
 for _ in country_names:
     if _[0] == 'S':
-    idx = country_names.index(_)
-
+        idx = country_names.index(_)
+        print(_.text,capitals.index(idx),populations.index(idx),areas.index(idx))
 # for _ in country_names:
 #     if _[0].upper() == letter:
 #         print(_)
@@ -95,6 +95,6 @@ for _ in country_names:
 
 # Scrape and print data for Panama only.
 
-for _ in country_h_tags:
-    if _.text == 'Panama':
-        data = soup.select("country-capital")
+# for _ in country_h_tags:
+#     if _.text == 'Panama':
+#         data = soup.select("country-capital")
