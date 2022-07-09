@@ -1,0 +1,8 @@
+all_countries = soup.find_all('div', class_="col-md-4 country")
+
+print("\n""\n" '--- Task 5 ---')
+for country in all_countries:
+    country_name = (country.h3.text.strip())
+    if country_name.startswith("D"):
+        population = country.find(class_="country-population").text
+        print(f"{country_name}, Population: {population}")
