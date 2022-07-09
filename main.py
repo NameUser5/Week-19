@@ -28,7 +28,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 # Scrape the population of each country into a list -- DONE
 
-print(color.GREEN + "\nScrape the population of each country into a list -- DONE" + color.END)
+print(color.GREEN + color.BOLD + "\nScrape the population of each country into a list -- DONE" + color.END)
 population_list = []
 populations = soup.find_all('span',{'class':'country-population'})
 for _ in populations:
@@ -38,7 +38,7 @@ for _ in population_list:
     print(_)
 
 # Scrape and print the title of the page -- DONE
-print(color.GREEN + "\nScrape and print the title of the page -- DONE" + color.END)
+print(color.GREEN + color.BOLD + "\nScrape and print the title of the page -- DONE" + color.END)
 title = soup.title.text
 print(title)
 
@@ -49,7 +49,7 @@ print(title)
 
 # Scrape and print the second hyperlink on the site. -- DONE (?)
 
-print(color.YELLOW + "\nScrape and print the second hyperlink on the site. -- DONE (?)" + color.END)
+print(color.YELLOW + color.BOLD + "\nScrape and print the second hyperlink on the site. -- DONE (?)" + color.END)
 hyperlink_list = []
 hyperlinks = soup.find_all('a')
 for _ in hyperlinks:
@@ -60,7 +60,7 @@ print(hyperlink_list[1])
 
 
 # # How many h3 tags are on the site -- DONE
-print(color.GREEN + "\nHow many h3 tags are on the site -- DONE \n" + color.END)
+print(color.GREEN + color.BOLD + "\nHow many h3 tags are on the site -- DONE \n" + color.END)
 heading_three_list = []
 headings = soup.find_all('h3')
 count = 0
@@ -71,16 +71,16 @@ for _ in headings:
 print(f"There are {count} h3 headings on this page.\n")
 
 
-# Scrape and print the area of all countries that start with the letter 's' -- DONE
+# Scrape and print the area of all countries that start with the letter 's' -- IN PROGRESS
 
-print(color.GREEN + "\nScrape and print the area of all countries that start with the letter 's' -- DONE" + color.END)
-countries = soup.find_all('div', class_="col-md-4 country")
+print(color.RED + color.BOLD + "\nScrape and print the area of all countries that start with the letter 's' -- IN PROGRESS" + color.END)
+countries = soup.find_all('div', {'class':'col-md-4 country'})
 
 for country in countries:
     country_name = (country.h3.text.strip())
-    if country_name.startswith("S"):
-        population = country.find(class_="country-population").text
-        print(f"{country_name}, Population: {population}")
+    # if country_name.startswith("S"):
+    #     area = country.find('class'='country-area').text
+    #     print(f"{country_name}, Area: {area}")
     if country_name.startswith("D"):
         capital = country.find(class_="country-capital").text
         print(f"{country_name}, Capital: {capital}")
@@ -88,7 +88,7 @@ for country in countries:
 
 # Scrape and print the capitals that start with the letter 'd'
 
-print(color.GREEN + "\nScrape and print the capitals that start with the letter 'd' -- DONE" + color.END)
+print(color.RED + color.BOLD + "\nScrape and print the capitals that start with the letter 'd' -- DONE" + color.END)
 #
 # for country in countries:
 #     country_name = (country.h3.text.strip())
