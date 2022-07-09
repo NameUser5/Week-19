@@ -13,9 +13,9 @@ soup = BeautifulSoup(page.content, 'html.parser')
 # Scrape and print data for Panama only.
 # Scrape and print the capitals that start with the letter 'd'
 
-# # Scrape and print the title of the page -- DONE
-# title = soup.title.text
-# print(title)
+# Scrape and print the title of the page -- DONE
+title = soup.title.text
+print(title)
 
 
 # # Scrape the population of each country into a list -- DONE
@@ -58,34 +58,41 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 # Scrape and print the area of all countries that start with the letter 's' -- IN PROGRESS
 
-letter = 'S'
+countries = soup.find_all('div', class_="col-md-4 country")
+
+print("\n""\n" '--- Task 5 ---')
+for country in countries:
+    country_name = (country.h3.text.strip())
+    if country_name.startswith("S"):
+        population = country.find(class_="country-population").text
+        print(f"{country_name}, Population: {population}")
 
 # h_tags = soup.find_all('h3',{'class':'country-name'})
 # capitals = soup.find_all('span',{'class':'country-capital'})
 # populations = soup.find_all('span',{'class':'country-population'})
 # areas = soup.find_all('span',{'class':'country-capital'})
-
-population_list = []
-populations = soup.find_all('span',{'class':'country-population'})
-for _ in populations:
-    population_list.append(_.text)
-
-capital_list = []
-capitals = soup.find_all('span',{'class':'country-capital'})
-for _ in capitals:
-    capital_list.append(_.text)
-
-area_list = []
-areas = soup.find_all('span',{'class':'country-capital'})
-for _ in areas:
-    area_list.append(_.text)
-
-count = 0
-country_names = []
-h_tags = soup.find_all('h3',{'class':'country-name'})
-for _ in h_tags:
-    country_names.append(_.text)
-    count += 1
+#
+# population_list = []
+# populations = soup.find_all('span',{'class':'country-population'})
+# for _ in populations:
+#     population_list.append(_.text)
+#
+# capital_list = []
+# capitals = soup.find_all('span',{'class':'country-capital'})
+# for _ in capitals:
+#     capital_list.append(_.text)
+#
+# area_list = []
+# areas = soup.find_all('span',{'class':'country-capital'})
+# for _ in areas:
+#     area_list.append(_.text)
+#
+# count = 0
+# country_names = []
+# h_tags = soup.find_all('h3',{'class':'country-name'})
+# for _ in h_tags:
+#     country_names.append(_.text)
+#     count += 1
 #
 # class Country_info():
 #     def __init__(self,country_names):
@@ -125,9 +132,9 @@ for _ in h_tags:
 # for _ in h_tags:
 #     country_names.append(_)
 #     count += 1
-for _ in country_names:
-    if _ == 'Panama':
-        idx = country_names.index(_)
-        print(country_names.index(idx),capital_list.index("Panama"),population_list.index(count),area_list.index(count))
-#
+# for _ in country_names:
+#     if _ == 'Panama':
+#         idx = country_names.index(_)
+#         print(country_names.index(idx),capital_list.index("Panama"),population_list.index(count),area_list.index(count))
+# #
 # print(capitals.index(1))
