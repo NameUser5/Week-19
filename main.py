@@ -81,6 +81,20 @@ for country in countries:
     if country_name.startswith("S"):
         population = country.find(class_="country-population").text
         print(f"{country_name}, Population: {population}")
+    if country_name.startswith("D"):
+        capital = country.find(class_="country-capital").text
+        print(f"{country_name}, Capital: {capital}")
+
+
+# Scrape and print the capitals that start with the letter 'd'
+
+print(color.GREEN + "\nScrape and print the capitals that start with the letter 'd' -- DONE" + color.END)
+#
+# for country in countries:
+#     country_name = (country.h3.text.strip())
+#     if country_name.startswith("D"):
+#         capital = country.find(class_="country-capital").text
+#         print(f"{country_name}, Capital: {capital}")
 
 # h_tags = soup.find_all('h3',{'class':'country-name'})
 # capitals = soup.find_all('span',{'class':'country-capital'})
