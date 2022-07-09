@@ -1,6 +1,18 @@
 from bs4 import BeautifulSoup
 import requests
 
+class color:
+   PURPLE = '\033[95m'
+   CYAN = '\033[96m'
+   DARKCYAN = '\033[36m'
+   BLUE = '\033[94m'
+   GREEN = '\033[92m'
+   YELLOW = '\033[93m'
+   RED = '\033[91m'
+   BOLD = '\033[1m'
+   UNDERLINE = '\033[4m'
+   END = '\033[0m'
+
 url = "https://www.scrapethissite.com/pages/simple/"
 page = requests.get(url)
 soup = BeautifulSoup(page.content, 'html.parser')
@@ -13,54 +25,57 @@ soup = BeautifulSoup(page.content, 'html.parser')
 # Scrape and print data for Panama only.
 # Scrape and print the capitals that start with the letter 'd'
 
+
+# Scrape the population of each country into a list -- DONE
+
+print(color.GREEN + "\nScrape the population of each country into a list -- DONE" + color.END)
+population_list = []
+populations = soup.find_all('span',{'class':'country-population'})
+for _ in populations:
+    population_list.append(_.text)
+
+for _ in population_list:
+    print(_)
+
 # Scrape and print the title of the page -- DONE
+print(color.GREEN + "\nScrape and print the title of the page -- DONE" + color.END)
 title = soup.title.text
 print(title)
-
-
-# # Scrape the population of each country into a list -- DONE
-#
-# population_list = []
-# populations = soup.find_all('span',{'class':'country-population'})
-# for _ in populations:
-#     population_list.append(_.text)
-#
-# for _ in population_list:
-#     print(_)
 
 # # What NOT to do--> Note: this prints the entire span, including the tags
 # pop = soup.select(".country-population")
 # print(pop)
 
 
-# # Scrape and print the second hyperlink on the site. -- DONE (?)
-#
-# hyperlink_list = []
-# hyperlinks = soup.find_all('a')
-# for _ in hyperlinks:
-#     hyperlink_list.append(_)
-#
-# # Taking the entire tag instead of just the text , so I can see what is being linked.
-# print(hyperlink_list[1])
+# Scrape and print the second hyperlink on the site. -- DONE (?)
+
+print(color.YELLOW + "\nScrape and print the second hyperlink on the site. -- DONE (?)" + color.END)
+hyperlink_list = []
+hyperlinks = soup.find_all('a')
+for _ in hyperlinks:
+    hyperlink_list.append(_)
+
+# Taking the entire tag instead of just the text , so I can see what is being linked.
+print(hyperlink_list[1])
 
 
 # # How many h3 tags are on the site -- DONE
-#
-# heading_three_list = []
-# headings = soup.find_all('h3')
-# count = 0
-# for _ in headings:
-#     heading_three_list.append(_)
-#     count += 1
-#
-# print(f"There are {count} h3 headings on this page.")
+print(color.GREEN + "\nHow many h3 tags are on the site -- DONE \n" + color.END)
+heading_three_list = []
+headings = soup.find_all('h3')
+count = 0
+for _ in headings:
+    heading_three_list.append(_)
+    count += 1
+
+print(f"There are {count} h3 headings on this page.\n")
 
 
-# Scrape and print the area of all countries that start with the letter 's' -- IN PROGRESS
+# Scrape and print the area of all countries that start with the letter 's' -- DONE
 
+print(color.GREEN + "\nScrape and print the area of all countries that start with the letter 's' -- DONE" + color.END)
 countries = soup.find_all('div', class_="col-md-4 country")
 
-print("\n""\n" '--- Task 5 ---')
 for country in countries:
     country_name = (country.h3.text.strip())
     if country_name.startswith("S"):
